@@ -1,0 +1,35 @@
+{
+  "name": "mx.utxj.ti.awos.bienesraices",
+  "version": "1.0.0",
+  "description": "Proyecto de Clase para la Unidad 2, de la asinatura AWOS utilizando Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MTI-MarcoRH/SD2024-BienesRaices_Matricula.git"
+  },
+  "keywords": [
+    "MVC",
+    "Express",
+    "Sequelize",
+    "MySQL",
+    "TailwindCSS",
+    "Nodemon",
+    "NodeJS",
+    "PUG",
+    "NodeMailer",
+    "Mailtrap",
+    "JWT"
+  ],
+  "author": "M.T.I. Marco Antonio Ramírez Hernández",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MTI-MarcoRH/SD2024-BienesRaices_Matricula/issues"
+  },
+  "homepage": "https://github.com/MTI-MarcoRH/SD2024-BienesRaices_Matricula#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
