@@ -1,6 +1,9 @@
 // ECMA Script 6
 // CommonJS
 import express from 'express';
+import generalRoutes from './routes/generalRoutes.js'
+import userRoutes from './routes/userRoutes.js'
+
 
 //const express = require('express');  //Importar la libreria para crear un serviror web - CommonJS
 // Instanciar nuestra aplicación web
@@ -13,16 +16,10 @@ app.listen(port, ()=>{
 })
 
 //Routing - Ennrutamiento.
-// Probamos las rutas para poder presentar mensajes al usuario a través del navegador
-app.get("/", function(req, res){
-    res.send("Hola Mundo desde Node, a través del Navegador");
-})
+app.use('/',generalRoutes);
+app.use('/usuario/',userRoutes);
 
-app.get("/QuienSoy", function(req, res){
-    res.json({"estudiante": "Su nombre completo aquí",
-            "carrera": "TI DSM",
-            "grado": "4°",
-            "grupo": "B",
-            "asignatura": "Aplicaciones Web Orientada a Servicios (AWOS)"
-    });})
+
+// Probamos las rutas para poder presentar mensajes al usuario a través del navegador
+
 
