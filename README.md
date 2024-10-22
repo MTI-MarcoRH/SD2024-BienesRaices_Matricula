@@ -15,6 +15,9 @@ Para poder demostrar y aprender la creación y consumo de Interfaces de Programa
 
 ✅Finalizada
 
+### Tech Stack
+![NodeJS](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
+
 
 ### Autor
  **M.T.I. Marco Antonio Ramírez Hernández** / [@MTI-MarcoRH](https://github.com/MTI-MarcoRH)
