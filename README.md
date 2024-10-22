@@ -19,5 +19,5 @@ Para poder demostrar y aprender la creación y consumo de Interfaces de Programa
 ### Autor
  **M.T.I. Marco Antonio Ramírez Hernández** / [@MTI-MarcoRH](https://github.com/MTI-MarcoRH)
 Unidad 2
-Aplicaciones Web Orientadas a Servicios 
+Aplicaciones Web Orientadas a Servicios
 Octubre 2024
