@@ -2,11 +2,13 @@ import express from 'express';
 
 const router = express.Router();
 
-
+//home
 router.get("/", function(req, res) {
     res.send("Hola desde la Web, en NodeJS")
 })
 
+
+//quienEres o quienSoy
 router.get("/quienEres", function(req, res) {
     res.json(
         {

@@ -3,8 +3,7 @@ const router= express.Router();
 
 
 //GET - Se utiliza para la lectura de datos e información del servidor al cliente
-// EndPoints - Son las rutas para accedes a las secciones o funciones de nuestra aplicacion web
- // 2 componentes de una petición  ruta (a donde voy), función callback (que hago)
+// EndPoints - Son las rutas para accedes a las secciones o funciones de nuestra aplicacion web// 2 componentes de una petición  ruta (a donde voy), función callback (que hago)
 // ":" en una ruta definen de manera posicional los parametros de entrada
 router.get("/findByID/:id", function (request, response) {
     response.send(`Se esta solicitando buscar al usuario con ID: ${request.params.id}`);
@@ -37,7 +36,6 @@ router.patch("/updatePassword/:email/:newPassword/:newPasswordConfirm", function
         console.log(newPassword);
         console.log(newPasswordConfirm);
     }
-
     
 })
 //DELETE
