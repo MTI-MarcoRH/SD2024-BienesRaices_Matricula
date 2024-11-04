@@ -25,5 +25,5 @@ app.listen(port, ()=>{
 
 // Routing - Enrutamiento para peticiones
 app.use('/',generalRoutes);
-app.use('/usuario',userRoutes);
+app.use('/auth',userRoutes);
 
