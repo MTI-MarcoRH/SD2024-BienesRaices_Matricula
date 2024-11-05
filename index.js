@@ -7,6 +7,7 @@
 import express from 'express';
 import generalRoutes from './routes/generalRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import db from './db/config.js'
 
 const app = express()
 
@@ -16,6 +17,19 @@ app.set('views','./views')
 
 //Definir la carpeta ública de recursos estáticos (assets)
 app.use(express.static('./public'));
+
+//Conexión a la BD
+try
+{
+  await db.authenticate();
+  console.log("Conexión exitosa a la base de datos.")
+}
+catch(error)
+{
+
+}
+
+
 
 // Configuramos nuestro servidor web
 const port =3000;
