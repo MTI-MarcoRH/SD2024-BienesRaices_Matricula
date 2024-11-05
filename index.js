@@ -10,6 +10,13 @@ import userRoutes from './routes/userRoutes.js'
 
 const app = express()
 
+// Configurar Templeate Engine - PUG
+app.set('view engine', 'pug')
+app.set('views','./views')
+
+//Definir la carpeta ública de recursos estáticos (assets)
+app.use(express.static('./public'));
+
 // Configuramos nuestro servidor web
 const port =3000;
 app.listen(port, ()=>{
@@ -18,5 +25,5 @@ app.listen(port, ()=>{
 
 // Routing - Enrutamiento para peticiones
 app.use('/',generalRoutes);
-app.use('/usuario',userRoutes);
+app.use('/auth',userRoutes);
 
