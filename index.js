@@ -21,13 +21,17 @@ app.use(express.static('./public'));
 //Conexión a la BD
 try
 {
-  await db.authenticate();
+  await db.authenticate();  // Verifico las credenciales del usuario
+  db.sync();  // Sincronizo las tablas con los modelos
   console.log("Conexión exitosa a la base de datos.")
 }
 catch(error)
 {
-
+    console.log(error)
 }
+
+//Habilitamos la lectura de datos desde formularios.
+app.use(express.urlencoded({encoded:true}))
 
 
 
