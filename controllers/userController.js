@@ -41,8 +41,11 @@ const  createNewUser= async(request, response) =>
             })
         }
         
+        //Desestructurar los parametros del request
+        const {nombre_usuario:name , correo_usuario:email, pass_usuario:password} = request.body
+
         //Verificar que el usuario no existe previamente en la bd
-        const existingUser = await User.findOne({ where: { email: request.body.correo_usuario }})
+        const existingUser = await User.findOne({ where: { email}})
 
         console.log(existingUser);
 
@@ -50,16 +53,14 @@ const  createNewUser= async(request, response) =>
         { 
             return response.render("auth/register", {
             page: 'Error al intentar crear la Cuenta de Usuario',
-            errors: [{msg: `El usuario ${request.body.correo_usuario} ya se encuentra registrado.` }],
+            errors: [{msg: `El usuario ${email} ya se encuentra registrado.` }],
             user: {
-                name: request.body.nombre_usuario
+                name:name
             }
         })
-
         }
-        return;
-
-            console.log("Registrando a un nuevo usuario.");
+             
+        console.log("Registrando a un nuevo usuario.");
             console.log(request.body);
 
         //Registramos los datos en la base de datos.
@@ -69,8 +70,8 @@ const  createNewUser= async(request, response) =>
             password: request.body.pass_usuario,
             }); 
             response.json(newUser); 
-        
-        
+
+        return;
     }
 
 
