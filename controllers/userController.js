@@ -5,13 +5,14 @@ import { emailAfterRegister } from '../helpers/emails.js'
 
 const formularioLogin = (request, response) =>   {
         response.render("auth/login", {
-            page : "Ingresa a la plataforma"
+            page : "Ingresa a la plataforma",
         })
     }
 
 const formularioRegister = (request, response) =>  {
         response.render('auth/register', {
-            page : "Crea una nueva cuenta..."
+            page : "Crea una nueva cuenta...", 
+            csrfToken: request.csrfToken()
         })};
 
 const formularioPasswordRecovery = (request, response) =>  {
@@ -88,5 +89,39 @@ const  createNewUser= async(request, response) =>
         
     }
 
+    const confirm = async(request, response) => 
+        {
+            const {token } = request.params
+            //validarToken - Si existe
+            console.log(`Intentando confirmar la cuenta con el token: ${token}`)
+            const userWithToken = await User.findOne({where: {token}});
 
-export {formularioLogin, formularioRegister, formularioPasswordRecovery, createNewUser}
+            if(!userWithToken){
+                response.render('auth/accountConfirmed', {
+                    page: 'Error al confirmar tu cuenta.',
+                    msg: 'El token no existe o ya ha sido utilizado, si ya has confirmado tu cuenta y aún no puedes ingresar, recupera tu contraseña aqui.',
+                    error: true
+                })
+            }
+            else
+            {
+                userWithToken.token=null
+                userWithToken.confirmed=true;
+                await userWithToken.save();
+
+                response.render('auth/accountConfirmed', {
+                    page: 'Excelente..!',
+                    msg: 'Tu cuenta ha sido confirmada de manera exitosa.',
+                    error: false
+                })
+
+            }
+            
+            
+            //confirmar cuenta
+            //enviar mensaje
+            
+
+        }
+
+export {formularioLogin, formularioRegister, formularioPasswordRecovery, createNewUser, confirm}
