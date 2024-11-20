@@ -55,6 +55,7 @@ const  createNewUser= async(request, response) =>
         { 
             return response.render("auth/register", {
             page: 'Error al intentar crear la Cuenta de Usuario',
+            csrfToken: request.csrfToken(),
             errors: [{msg: `El usuario ${email} ya se encuentra registrado.` }],
             user: {
                 name:name
@@ -83,6 +84,7 @@ const  createNewUser= async(request, response) =>
 
 
         response.render('templates/message', {
+            csrfToken: request.csrfToken(),
             page: 'Cuenta creada satisfactoriamente.',
             msg: 'Hemos enviado un correo a : <poner el correo aqui>, para la confirmación se cuenta.'
         })
