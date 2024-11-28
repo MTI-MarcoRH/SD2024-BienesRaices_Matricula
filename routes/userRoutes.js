@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioLogin, formularioRegister, formularioPasswordRecovery, createNewUser, confirm } from '../controllers/userController.js';
+import { formularioLogin, formularioRegister, formularioPasswordRecovery, createNewUser, confirm, passwordReset, verifyTokenPasswordChange, updatePassword } from '../controllers/userController.js';
 
 const router= express.Router();
 
@@ -13,7 +13,7 @@ router.get("/findByID/:id", function (request, response) {
 })     
 
 //POST - Se utiliza para el envío de datos e información del cliente al servidor
-router.post("/newUser", createNewUser)
+router.post("/newUser",createNewUser)
 
 //PUT - Se utiliza para la atualización total de información del cliente al servidor
 router.put("/replaceUserByEmail/:name/:email/:password", function(a,b){
@@ -52,5 +52,9 @@ router.delete("/deleteUser/:email", function(request, response){
  router.get("/createAccount", formularioRegister)
  router.get("/confirmAccount/:token", confirm)
  router.get("/passwordRecovery", formularioPasswordRecovery)
+ router.post("/passwordRecovery", passwordReset)
 
+//Actualizar contraseña
+router.get("/passwordRecovery/:token", verifyTokenPasswordChange) 
+router.post("/passwordRecovery/:token", updatePassword)
 export default router;
