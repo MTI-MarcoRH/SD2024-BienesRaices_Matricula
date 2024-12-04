@@ -15,7 +15,7 @@ Para poder demostrar y aprender la creación y consumo de Interfaces de Programa
 |10.|23/10/2024|Operaciones Básicas de un API a través de los verbos HTTP| 12|✅Finalizada|
 |11.|05/11/2024|Implementación de las Pantallas de Registro, Logeo y Recuperación de Contraseña|13|✅Finalizada|
 |12.|20/11/2024|Implementación de la funcionalidad del registro de Cuentas de Usuario|30|✅Finalizada|
-|13.|28/11/2024|Implementación de recupueración de contraseñas|Pendiente|⭐Activa|
+|13.|28/11/2024|Implementación de recupueración de contraseñas|20|⭐Activa|
 
 
 ### Autor
