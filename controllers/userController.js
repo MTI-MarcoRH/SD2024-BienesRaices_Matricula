@@ -217,7 +217,29 @@ const  createNewUser= async(request, response) =>
     }
 
     const updatePassword = async(request, response)=>{
-        return 0;
+
+        const {token}= request.params
+
+        //Validar campos de contraseñas
+        await check('new_password').notEmpty().withMessage("La contraseña es un campo obligatorio.").isLength({min:8}).withMessage("La constraseña debe ser de almenos 8 carácteres.").run(request)
+        await check("confirm_new_password").equals(request.body.new_password).withMessage("La contraseña y su confirmación deben coincidir").run(request)
+
+        let result = validationResult(request)
+
+        if(!result.isEmpty())
+            {
+                return response.render("auth/reset-password", {
+                    page: 'Error al intentar crear la Cuenta de Usuario',
+                    errors: result.array(),
+                    csrfToken: request.csrfToken(),
+                    token: token
+                })
+            }
+
+        //Actualizar en BD el pass 
+
+        //Renderizar la respuesta
+        
     }
 
 
