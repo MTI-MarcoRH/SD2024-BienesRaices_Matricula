@@ -237,9 +237,18 @@ const  createNewUser= async(request, response) =>
             }
 
         //Actualizar en BD el pass 
+        const userTokenOwner = await User.findOne({where: {token}}) 
+        userTokenOwner.password=request.body.new_password
+        userTokenOwner.token=null;
+        userTokenOwner.save();  // update tb_users set password=new_pasword where token=token;
 
         //Renderizar la respuesta
-        
+        response.render('auth/accountConfirmed', {
+            page: 'Excelente..!',
+            msg: 'Tu contraseña ha sido confirmada de manera exitosa.',
+            error: false
+        })
+
     }
 
 
